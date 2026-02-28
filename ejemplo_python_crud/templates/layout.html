@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Registro de Personas - Ejemplo CRUD Python</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files (Usamos tus archivos locales) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='js/jquery-ui/jquery-ui.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div id="topbar" class="d-flex align-items-center fixed-top"
+        style="display: flex; align-items: center; justify-content: space-between; padding: 0 50px;">
+        <div class="contact-info">
+            <i class="glyphicon glyphicon-envelope"></i> <a href="mailto:mtahan@unexpo.edu.ve">mtahan@unexpo.edu.ve</a>
+            <i class="glyphicon glyphicon-phone" style="margin-left: 15px;"></i> +58 xxx xxx xxxx
+        </div>
+        <div class="social-links">
+            UNEXPO - Sección 37
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 60px;">
+        <!-- Navbar -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ url_for('persona.index') }}">Ejemplo CRUD Python</a>
+                </div>
+
+                {% if session['username'] %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Bienvenido, <strong>{{ session['username'] }}</strong></a></li>
+                    <li><a href="{{ url_for('auth.logout') }}" class="btn btn-danger navbar-btn"
+                            style="color:white; margin-left:15px; border-radius: 20px; padding: 5px 15px;">Salir</a>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero" class="d-flex align-items-center">
+            <div class="container">
+                <h1>Registro de Personas</h1>
+                <p>Ejemplo CRUD Python</p>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="clinic-card main-content-area">
+            {% block content %}{% endblock %}
+        </div>
+
+
+        <!-- Footer -->
+        <footer id="footer" class="text-center">
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Registro de Personas</span></strong>. Todos los derechos reservados
+                </div>
+                <div class="credits">
+                    Computación 1. UNEXPO - Núcleo Guarenas. Sección 37. Prof. Mónica Tahan
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ini.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.anexsoft-validator.js') }}"></script>
+</body>
+
+</html>

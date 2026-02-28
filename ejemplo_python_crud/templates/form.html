@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class="page-header">
+    {{ alm['nombres'] if alm else 'Nuevo Registro' }}
+</h1>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb" style="background: var(--bg-light); padding: 10px 15px;">
+        <li><a href="{{ url_for('persona.index') }}" style="color: var(--primary);">Gestión</a></li>
+        <li class="active" style="margin-left: 10px;">{{ alm['nombres'] if alm else 'Nueva Persona' }}</li>
+    </ol>
+</nav>
+
+<form action="{{ url_for('persona.guardar') }}" method="post" id="frm-persona"
+    style="max-width: 800px; margin: 30px 0;">
+    <input type="hidden" name="idpersona" value="{{ alm['idpersona'] if alm else '' }}" />
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label style="font-weight: 600; color: var(--text-dark);">Nombre Completo</label>
+                <input type="text" name="Nombres" value="{{ alm['nombres'] if alm else '' }}" class="form-control"
+                    placeholder="Ingrese nombre y apellido" required />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label style="font-weight: 600; color: var(--text-dark);">Cédula de Identidad</label>
+                <input type="text" name="Cedula" value="{{ alm['cedula'] if alm else '' }}" class="form-control"
+                    placeholder="V-0000000" required />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label style="font-weight: 600; color: var(--text-dark);">Fecha de Nacimiento</label>
+                <input type="date" name="FechaNacimiento" value="{{ alm['fecha_nmto'] if alm else '' }}"
+                    class="form-control" required />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 20px;">
+        <label style="font-weight: 600; color: var(--text-dark);">Dirección de Habitación</label>
+        <textarea name="direccion" class="form-control" rows="2" placeholder="Dirección completa"
+            required>{{ alm['direccion'] if alm else '' }}</textarea>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 20px;">
+        <label style="font-weight: 600; color: var(--text-dark);">Correo Electrónico</label>
+        <input type="email" name="correo" value="{{ alm['email'] if alm else '' }}" class="form-control"
+            placeholder="ejemplo@correo.com" required />
+    </div>
+
+    <hr style="border-top: 1px solid #d9e1ec; margin-top: 30px;" />
+
+    <div class="text-right" style="display: flex; justify-content: flex-end; gap: 10px;">
+        <a href="{{ url_for('persona.index') }}" class="btn btn-default"
+            style="border-radius: 50px; padding: 10px 30px;">Cancelar</a>
+        <button type="submit" class="btn-clinic">Guardar Registro</button>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function () {
+        $("#frm-persona").submit(function () {
+            return $(this).validate();
+        });
+    })
+</script>
+{% endblock %}

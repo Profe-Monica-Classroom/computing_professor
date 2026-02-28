@@ -17,6 +17,7 @@ print(miLista[1])
 
 # ... sin embargo también existe los siguiente
 print(miLista[-1])
+print(miLista[2])
 # Es posible utilizar un indexado negativo para acceder
 # a los elementos de la lista
 
@@ -30,6 +31,10 @@ print(miListaNumeros[2:5]) # en el intervalo [2, 5)
 miLista[1] = "melón"
 print(miLista[1])
 
+# Recorrer una lista
+for k in miLista:
+  print(k)
+  
 # Recorrer una lista
 for k in miListaNumeros:
   print(k)

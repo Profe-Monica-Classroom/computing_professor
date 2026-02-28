@@ -1,37 +1,41 @@
-<h1 class="page-header">Personas</h1>
-
-
-<div class="well well-sm text-right">
-    <a class="btn btn-primary" href="?c=Persona&a=Crud">Agregar Persona</a>
+<div class="d-flex justify-content-between align-items-center" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+    <h1 class="page-header" style="margin: 0; padding-bottom: 10px;">Gestión de Personas (PHP)</h1>
+    <a class="btn-clinic" href="?c=Persona&a=Crud" style="text-decoration: none;">+ Agregar Persona</a>
 </div>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th >Nombres</th>
-            <th>Cedula</th>
-            <th>Fecha de Nacimiento</th>
-            <th >Direccion</th>
-            <th >Correo</th>
-            <th ></th>
-            <th ></th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php foreach($this->model->Listar() as $r): ?>
-        <tr>
-            <td><?php echo $r->nombres; ?></td>
-            <td><?php echo $r->cedula; ?></td>
-            <td><?php echo $r->fecha_nmto; ?></td>
-            <td><?php echo $r->direccion; ?></td>
-            <td><?php echo $r->email; ?></td>
-            <td>
-                <i class="glyphicon glyphicon-edit"><a href="?c=Persona&a=Crud&idpersona=<?php echo $r->idpersona; ?>"> Editar</a></i>
-            </td>
-            <td>
-                <i class="glyphicon glyphicon-remove"><a href="?c=Persona&a=Eliminar&idpersona=<?php echo $r->idpersona; ?>"> Eliminar</a></i>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table> 
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nombres y Apellidos</th>
+                <th>Cédula</th>
+                <th>F. Nacimiento</th>
+                <th>Dirección</th>
+                <th>Correo Electrónico</th>
+                <th width="60"></th>
+                <th width="60"></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach($this->model->Listar() as $r): ?>
+            <tr>
+                <td><?php echo $r->nombres; ?></td>
+                <td><?php echo $r->cedula; ?></td>
+                <td><?php echo $r->fecha_nmto; ?></td>
+                <td><?php echo $r->direccion; ?></td>
+                <td><?php echo $r->email; ?></td>
+                <td class="text-center">
+                    <a href="?c=Persona&a=Crud&idpersona=<?php echo $r->idpersona; ?>" title="Editar" style="color: var(--primary);">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a href="?c=Persona&a=Eliminar&idpersona=<?php echo $r->idpersona; ?>" title="Eliminar" style="color: #d9534f;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table> 
+</div>

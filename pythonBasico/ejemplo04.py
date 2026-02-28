@@ -38,6 +38,7 @@ estaTuplaCopia.append("uva") #agregando un elemento
 print(estaTuplaCopia)
 
 estaTuplaCopia.append("kiwi")
+print(estaTuplaCopia)
 # y luego convertirla nuevamente a tupla
 # o simplemente crear una nueva tupla con los elementos
 # de la lista   

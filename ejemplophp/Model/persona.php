@@ -1,15 +1,16 @@
 <?php
-class Persona
+class Persona //class that manage person data
 {
 	private $pdo;
     
-    public $idpersona;
-    public $nombres;
-    public $cedula;
-    public $fecha_nmto;
-    public $direccion;
-    public $email;
+    public $idpersona; //person id
+    public $nombres; //person name
+    public $cedula; //person id card
+    public $fecha_nmto; //person birth date
+    public $direccion; //person address
+    public $email; //person email
 
+    //constructor of class
 	public function __CONSTRUCT()
 	{
 		try
@@ -22,6 +23,7 @@ class Persona
 		}
 	}
 
+	//method to list all persons
 	public function Listar()
 	{
 		try
@@ -39,10 +41,12 @@ class Persona
 		}
 	}
 
+	//method to get a person by id
 	public function getting($idpersona)
 	{
 		try 
 		{
+			//query to get a person by id
 			$stm = $this->pdo
 			          ->prepare("SELECT * FROM persona WHERE idpersona = ?");
 			          
@@ -59,6 +63,7 @@ class Persona
 	{
 		try 
 		{
+			//query to delete a person
 			$stm = $this->pdo
 			            ->prepare("DELETE FROM persona WHERE idpersona = ?");			          
 
@@ -69,10 +74,12 @@ class Persona
 		}
 	}
 
+	//method to update a person
 	public function Actualizar($data)
 	{
 		try 
 		{
+			//query to update a person
 			$sql = "UPDATE persona SET 
 						nombres          = ?, 
 						cedula        = ?,
@@ -97,11 +104,12 @@ class Persona
 			die($e->getMessage());
 		}
 	}
-
+	//method to register a new person	
 	public function Registrar($data)
 	{
 		try 
 		{
+			//query to register a new person
 		$sql = "INSERT INTO `persona` (nombres,cedula,fecha_nmto,direccion,email) 
 		        VALUES (?, ?, ?, ?, ?)";
 
