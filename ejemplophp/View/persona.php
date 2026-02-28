@@ -1,5 +1,5 @@
-<div class="d-flex justify-content-between align-items-center" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-    <h1 class="page-header" style="margin: 0; padding-bottom: 10px;">Gestión de Personas (PHP)</h1>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h3 style="margin: 0; color: var(--primary); font-weight: 700;">Listado de Personas</h3>
     <a class="btn-clinic" href="?c=Persona&a=Crud" style="text-decoration: none;">+ Agregar Persona</a>
 </div>
 
