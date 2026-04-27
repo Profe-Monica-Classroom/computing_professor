@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Registro de Personas - Ejemplo CRUD Python</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+
+<body style="background-color: var(--bg-light);">
+    <div class="container">
+        <div class="login-box">
+            <div class="text-center" style="margin-bottom: 30px;">
+                <h1 style="color: var(--primary); font-weight: 700;">Registro de Personas</h1>
+                <p style="color: var(--text-light);">Ejemplo CRUD Python</p>
+            </div>
+
+            <div class="clinic-card">
+                <h4 style="font-weight: 700; color: var(--text-dark); margin-bottom: 20px;">Iniciar Sesión</h4>
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="alert alert-danger" style="font-size: 14px; border-radius: 5px;">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+
+                <form action="{{ url_for('auth.login') }}" method="POST">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label style="color: var(--text-dark);">Usuario</label>
+                        <input type="text" name="usuario" class="form-control" placeholder="Nombre de usuario"
+                            required />
+                    </div>
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label style="color: var(--text-dark);">Contraseña</label>
+                        <input type="password" name="password" class="form-control" placeholder="Clave de acceso"
+                            required />
+                    </div>
+
+                    <!-- CAPTCHA de Imagen Moderno -->
+                    <div class="form-group"
+                        style="margin-bottom: 25px; background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6;">
+                        <label
+                            style="color: var(--primary); font-weight: 700; display: block; margin-bottom: 10px;">Código
+                            de Verificación</label>
+                        <div class="text-center" style="margin-bottom: 15px;">
+                            <img src="{{ captcha_img }}" alt="Captcha"
+                                style="border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 100%; max-width: 180px;">
+                        </div>
+                        <input type="text" name="captcha_input" class="form-control"
+                            placeholder="Escribe el código de la imagen" required
+                            style="text-transform: uppercase; text-align: center; font-weight: 700; letter-spacing: 2px;" />
+                    </div>
+
+                    <button type="submit" class="btn-clinic btn-block" style="width: 100%;">Entrar al Sistema</button>
+
+
+                    <p class="text-center" style="margin-top: 20px; font-size: 14px;">
+                        ¿No tienes cuenta? <a href="{{ url_for('auth.registro') }}"
+                            style="color: var(--primary); font-weight: 600;">Regístrate aquí</a>
+                    </p>
+
+                    <p class="text-center" style="margin-top: 20px; font-size: 12px; color: #777;">
+
+                        Indique aquí sus credenciales de acceso<br>
+                        <strong>Nota: (admin/admin) para este demo.</strong><br>
+                        <strong>UNEXPO - Computación 1. Sección 37</strong>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

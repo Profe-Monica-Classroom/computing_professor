@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Modelo Entidad Relación (DER)</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .diagram-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Modelo Entidad Relación - Gestión Académica</h1>
+    <div class="diagram-container">
+        <pre class="mermaid">
+        erDiagram
+            PERSONA ||--o{ ESTUDIANTE_INSCRITO : "Se inscribe en"
+            PERSONA ||--o{ PROFESOR_DICTA : "Imparte"
+            ASIGNATURA ||--o{ ESTUDIANTE_INSCRITO : "Tiene inscritos"
+            ASIGNATURA ||--o{ PROFESOR_DICTA : "Es dictada por"
+
+            PERSONA {
+                int id_persona PK "Auto Inc"
+                string dni "Unique"
+                string nombre
+                string apellido
+                string tipo "Enum"
+            }
+
+            ASIGNATURA {
+                string codigo_asignatura PK
+                string nombre_materia
+                int creditos
+            }
+
+            ESTUDIANTE_INSCRITO {
+                int id_inscripcion PK
+                int id_persona FK
+                string codigo_asignatura FK
+                date fecha_inscripcion
+            }
+
+            PROFESOR_DICTA {
+                int id_carga PK
+                int id_persona FK
+                string codigo_asignatura FK
+                string turno
+            }
+        </pre>
+    </div>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</body>
+
+</html>

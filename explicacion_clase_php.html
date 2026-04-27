@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase: Desarrollo Web con PHP y MVC</title>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5c6bc0;
+            /* Indigo lighten-1 */
+            --secondary-color: #26a69a;
+            /* Teal lighten-1 */
+            --accent-color: #ffca28;
+            /* Amber lighten-1 */
+            --bg-color: #f5f5f5;
+            --card-bg: white;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3949ab, #1e88e5);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 300;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Material Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-header .material-icons {
+            margin-right: 15px;
+            font-size: 32px;
+            color: var(--secondary-color);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        /* Infographic Logic Flow */
+        .flow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .flow-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            background: #e3f2fd;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .flow-step strong {
+            display: block;
+            color: #1565c0;
+            margin-bottom: 5px;
+        }
+
+        .arrow {
+            font-size: 24px;
+            color: #ccc;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .arrow {
+                display: block;
+            }
+        }
+
+        /* MVC Diagram representation */
+        .mvc-diagram {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .mvc-box {
+            background: white;
+            border-left: 5px solid;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .mvc-model {
+            border-color: #ef5350;
+        }
+
+        .mvc-view {
+            border-color: #66bb6a;
+        }
+
+        .mvc-controller {
+            border-color: #ffa726;
+        }
+
+        .mvc-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Code snippets style */
+        code {
+            background: #f1f8e9;
+            color: #33691e;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+        }
+
+        pre {
+            background: #263238;
+            color: #eceff1;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        /* Chips for concepts */
+        .chip {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #e0e0e0;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            margin: 5px;
+            font-weight: 500;
+        }
+
+        .chip.primary {
+            background: #e8eaf6;
+            color: #1a237e;
+        }
+
+        /* Timeline for Session */
+        .timeline {
+            border-left: 2px solid var(--primary-color);
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            border-radius: 50%;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Desarrollo Web con PHP</h1>
+        <p>Guía Visual del Patrón MVC y CRUD</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Sección 1: Introducción -->
+        <div class="card">
+            <div class="card-header">
+                <i class="material-icons">architecture</i>
+                <h2>Estructura del Proyecto (MVC)</h2>
+            </div>
+            <div class="card-content">
+                <p>El patrón <strong>Modelo-Vista-Controlador</strong> separa la lógica en tres capas para mantener el
+                    código ordenado.</p>
+
+                <div class="mvc-diagram">
+                    <div class="mvc-box mvc-model">
+                        <span class="mvc-title" style="color:#c62828">M: MODELO (Datos)</span>
+                        <p>Archivos en <code>/Model</code>. Se encarga de hablar con la Base de Datos.</p>
+                        <small>Ej: <code>persona.php</code> hace los <code>SELECT</code>, <code>INSERT</code>.</small>
+                    </div>
+                    <div class="mvc-box mvc-view">
+                        <span class="mvc-title" style="color:#2e7d32">V: VISTA (Interfaz)</span>
+                        <p>Archivos en <code>/View</code>. Es el HTML que ve el usuario.</p>
+                        <small>Ej: Formularios, Tablas, Botones.</small>
+                    </div>
+                    <div class="mvc-box mvc-controller">
+                        <span class="mvc-title" style="color:#ef6c00">C: CONTROLADOR (Cerebro)</span>
+                        <p>Archivos en <code>/Controller</code>. Recibe la petición y decide qué hacer.</p>
+                        <small>Ej: "El usuario quiere guardar -> Llama al Modelo -> Muestra la Vista".</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 2: Flujo de la Información -->
+        <div class="card">
+            <div class="card-header">
+                <i class="material-icons">sync_alt</i>
+                <h2>Flujo de una Petición Web</h2>
+            </div>
+            <div class="card-content">
+                <p>¿Qué pasa cuando entras a la página?</p>
+
+                <div class="flow-container">
+                    <div class="flow-step">
+                        <strong>1. Usuario</strong>
+                        <br><i class="material-icons">mouse</i><br>
+                        Hace clic en "Ver Personas"
+                    </div>
+                    <i class="material-icons arrow">arrow_forward</i>
+
+                    <div class="flow-step">
+                        <strong>2. index.php</strong>
+                        <br><i class="material-icons">router</i><br>
+                        Carga el FrontController
+                    </div>
+                    <i class="material-icons arrow">arrow_forward</i>
+
+                    <div class="flow-step">
+                        <strong>3. Controller</strong>
+                        <br><i class="material-icons">settings</i><br>
+                        <code>persona.controller.php</code> pide datos al Modelo
+                    </div>
+                    <i class="material-icons arrow">arrow_forward</i>
+
+                    <div class="flow-step">
+                        <strong>4. Vista</strong>
+                        <br><i class="material-icons">visibility</i><br>
+                        Se genera el HTML final
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 3: Conexión a Base de Datos -->
+        <div class="card">
+            <div class="card-header">
+                <i class="material-icons">storage</i>
+                <h2>Conexión PDO (MySQL)</h2>
+            </div>
+            <div class="card-content">
+                <p>Usamos <strong>PDO</strong> (PHP Data Objects) para conectarnos de forma segura y orientada a
+                    objetos.</p>
+                <pre>
+class Conexion {
+    public static function StartUp() {
+        // Conexión segura usando try-catch
+        $pdo = new PDO('mysql:host=localhost;dbname=db', 'root', '1234');
+        return $pdo;
+    }
+}</pre>
+                <div style="margin-top:15px">
+                    <span class="chip primary">Seguridad</span>
+                    <span class="chip primary">Abstracción</span>
+                    <span class="chip primary">Manejo de Errores</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección 4: Sesiones -->
+        <div class="card">
+            <div class="card-header">
+                <i class="material-icons">vpn_key</i>
+                <h2>Autenticación y Sesiones</h2>
+            </div>
+            <div class="card-content">
+                <p>El manejo de usuarios se hace mediante <code>$_SESSION</code>.</p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <strong>Inicio (Login)</strong>
+                        <p>El usuario envía credenciales. Si son correctas, guardamos
+                            <code>$_SESSION['user_id'] = 1;</code></p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Persistencia</strong>
+                        <p>Mientras navega, PHP recuerda quién es gracias a la cookie de sesión.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Protección</strong>
+                        <p>Antes de mostrar una página, verificamos:
+                            <code>if(!isset($_SESSION['user_id'])) die('Acceso denegado');</code></p>
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Cierre (Logout)</strong>
+                        <p>Al salir, ejecutamos <code>session_destroy();</code> para borrar los datos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        Diseñado para la clase de Computación - Ingeniería Mecatrónica.
+    </footer>
+
+</body>
+
+</html>

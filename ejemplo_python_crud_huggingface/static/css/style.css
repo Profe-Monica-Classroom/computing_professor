@@ -1,0 +1,199 @@
+/* Clinic/Medicio Theme Styles */
+:root {
+    --primary: #1977cc;
+    --secondary: #3291e6;
+    --accent: #ffca28;
+    --text-dark: #2c4964;
+    --text-light: #444444;
+    --bg-light: #f1f7fd;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: "Open Sans", sans-serif;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* Top Bar */
+#topbar {
+    background: #fff;
+    height: 40px;
+    font-size: 14px;
+    transition: all 0.5s;
+    z-index: 996;
+    border-bottom: 1px solid #d9e1ec;
+}
+
+/* Header/Navbar */
+.navbar {
+    background: #fff;
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 15px 0;
+    box-shadow: 0px 2px 15px rgba(25, 119, 204, 0.1);
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-brand {
+    color: var(--primary);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.navbar-nav>li>a {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.navbar-nav>li>a:hover {
+    color: var(--primary);
+}
+
+/* Cards & Panels */
+.clinic-card {
+    background: var(--white);
+    padding: 30px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.page-header {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    border-bottom: none;
+}
+
+.page-header::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+    bottom: 0;
+    left: 0;
+}
+
+/* Buttons */
+.btn-clinic {
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 35px;
+    border-radius: 50px;
+    transition: 0.5s;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+}
+
+.btn-clinic:hover {
+    background: var(--secondary);
+    color: #fff;
+}
+
+/* Tables */
+.table {
+    background: #fff;
+}
+
+.table thead th {
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+}
+
+/* Forms */
+.form-control {
+    border-radius: 4px;
+    box-shadow: none;
+    font-size: 14px;
+    padding: 10px 15px;
+    border: 1px solid #d9e1ec;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: none;
+}
+
+/* Footer */
+#footer {
+    background: #fff;
+    padding: 30px 0;
+    color: var(--text-dark);
+    font-size: 14px;
+    border-top: 1px solid #d9e1ec;
+}
+
+/* Login Page Styles */
+.login-box {
+    max-width: 400px;
+    margin: 100px auto;
+}
+
+/* Hero Section */
+#hero {
+    width: 100%;
+    height: 250px;
+    background: url("../img/hero-bg.png") center center no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-top: 0;
+}
+
+#hero:before {
+    content: "";
+    background: rgba(25, 119, 204, 0.6);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#hero .container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+#hero h1 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#hero p {
+    color: #f1f7fd;
+    margin: 5px 0 0 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* Ajustes de espaciado */
+.navbar {
+    margin-bottom: 0 !important;
+}
+
+.main-content-area {
+    margin-top: 30px;
+}

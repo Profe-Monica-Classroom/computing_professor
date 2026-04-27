@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>Ejemplo Libros</title>
+        
+        <meta charset="utf-8" />
+        
+        <link rel="stylesheet" href="bootstrap.min.css" />
+        <link rel="stylesheet" href="bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="jquery-ui.min.css" />
+        <link rel="stylesheet" href="style.css" />
+        <div>
+            <img src="imagen1.jpg" alt="Esto es una imagen" class="img-thumbnail">
+        </div><!--<img src="">-->
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    </header>
+    <body>
+        <div class="container">
+            <h1 class="page-header">
+                <p>Registro de Libros Computación 1 S37</p>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="ejemplo_fomularioFeb2023.html">Home Libros</a></li>    
+            </ol>
+            <div style="width: 50%"> <!-- A PARTIR DE AQUI INICIAN LOS CAMPOS DEL FORMULARIO-->
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div  class="form-group">
+                        <label> Autor: </label>
+                        <input type="text" name="autor" value="Indique aquí Nombre del Autor" class="form-control" placeholder="Ingrese nombre del autor" data-validacion-tipo="requerido|min:3" id="autor" />
+                    </div>
+                    <div class="form-group">
+                        <label> Título: </label>
+                        <input type="text" name="titulo" value="Indique aquí Título del Libro" class="form-control" placeholder="Ingrese título del libro" data-validacion-tipo="requerido|min:3" />
+                    </div>
+                    <div class="form-group">
+                        <label> Cantidad de Páginas: </label>
+                        <input type="number" name="paginas" value="50" class="form-control" placeholder="Ingrese cantidad de páginas" data-validacion-tipo="requerido|min:2" />
+                    </div>
+                    <div class="form-group">
+                        <label> Año:</label>
+                        <input type="number" name="year" value="1996" class="form-control" placeholder="Ingrese el año del libro" data-validacion-tipo="requerido|min:4" />
+                    </div>
+                    <div class="form-group">
+                        <label> Tipo de Libro: </label>
+                        <input type="text" name="tipolibro" value="Misterio" class="form-control" placeholder="Ingrese el tipo de libro" data-validacion-tipo="requerido|min:3" />
+                    </div>
+                    <div class="form-group">
+                        <label> Cantidad de Libros:	</label>
+                        <input type="cantidad" name="cantidad" value="15" class="form-control" placeholder="Ingrese la cantidad de libros" data-validacion-tipo="requerido|min:1" />
+                    </div>
+                    <div class="form-group">
+                        <label> Disponible:	</label>
+                        <div class="form-group">
+                            <input type="radio" id="disponible" name="disponible" value="SI">
+      						<label for="SI">SI</label>
+      						<input type="radio" id="disponible" name="disponible" value="NO">
+      						<label for="NO">NO</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label> Editorial: </label>
+                        <input type="text" name="editorial" value="Panapo" class="form-control" placeholder="Ingrese la editorial del libro" data-validacion-tipo="requerido|min:3" />
+                    </div>
+                    <div class="form-group">
+                        <label> Fecha de Publicación: </label>
+                        <input type="date" name="fecha" value="14/12/2000" class="form-control" placeholder="Ingrese la fecha"  />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="panel-footer text-center well">
+            <p>Computacion 1. Unexpo. Sección 37</p>
+        </div>
+    </footer>
+</html>
